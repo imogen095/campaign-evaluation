@@ -1,9 +1,9 @@
 # This programme helps B2B campaign leads evaluate LinkedIn campaigns
 # using simple performance metrics
 
-campaigns = []  # empty box to store campaigns
+campaigns = []  # make empty list to store multiple campaign dictionaries
 
-running = True  # keep program going
+running = True  # Boolean flag to control while loop execution
 while running:  # repeat until told to stop
 
     while True:  # keep asking for name
@@ -18,8 +18,8 @@ while running:  # repeat until told to stop
     # --- impressions ---
     while True:  # keep asking
         try:  # try number
-            campaign_impressions = int(input("Share campaign impressions:\n"))  # get number
-            if campaign_impressions <= 0:  # if bad number
+            campaign_impressions = int(input("Share campaign impressions:\n")) # type casting to integer
+            if campaign_impressions <= 0:  # Conditional logic to prevent ZeroDivisionError
                 print("Error, too few impressions to analyse meaningful results.")  # say no
                 continue  # ask again
             break  # number ok
@@ -64,7 +64,7 @@ while running:  # repeat until told to stop
 
     print("Length of highest performing post:", len(highest_post))  # count letters
 
-    campaign = {  # make campaign record
+    campaign = {  # dictionary creation
         "name": name,
         "campaign_impressions": campaign_impressions,
         "campaign_clicks": campaign_clicks,
@@ -90,7 +90,8 @@ while running:  # repeat until told to stop
         else:
             print('Error. Add another campaign? (y/n)')  # wrong answer
 
-print()  # blank line
+# Formatted summary table output
+# print()  # blank line
 
 print(f"{'Campaign Name':<20}{'CTR':>10}{'CPC (£)':>12}{'CPM (£)':>12}")  # table header
 print("-" * 54)  # line under header
